@@ -30,16 +30,13 @@ def get_user_info(json_file):
     try:
         USERS = os.environ['UID']
         PWD = os.environ['UPW']
-        SCKEY = os.environ['SCKEY']
         user_list = USERS.split('&')
         pwd_list = PWD.split('&')
-        sckey_list = SCKEY.split('&')
         # assert len(user_list) == len(pwd_list)
-        for u, p, k in zip(user_list,pwd_list,sckey_list):
+        for u, p, k in zip(user_list,pwd_list):
             user = dict()
             user['uid'] = u
             user['upw'] = p
-            user['sckey'] = k
             users.append(user)
     except KeyError:
         users = read_json(json_file)
