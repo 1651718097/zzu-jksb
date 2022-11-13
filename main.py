@@ -173,7 +173,6 @@ def submit(data):
 
 
 if __name__ == '__main__':
-    server = Notify()
     users = get_user_info('user.json')
     for user in users:
         try:
@@ -184,10 +183,9 @@ if __name__ == '__main__':
                 submit_data = ready_submit(data=permit_data, refer=url)
                 submit_data = parse_submit_data(submit_data, 'submit_data.json')
                 result = submit(submit_data)
-                server.server(user['sckey'], user['uid'], result)
             else:
                 print("今日您已经填报过了")
         except ex.SSLError:
             result = "打卡失败，请手动打卡！"
-            server.server(user['sckey'], user['uid'], result)
+            print("打卡失败，请手动打卡！")
         time.sleep(10)
