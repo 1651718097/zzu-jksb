@@ -33,7 +33,7 @@ def get_user_info(json_file):
         user_list = USERS.split('&')
         pwd_list = PWD.split('&')
         # assert len(user_list) == len(pwd_list)
-        for u, p, k in zip(user_list,pwd_list):
+        for u, p in zip(user_list,pwd_list):
             user = dict()
             user['uid'] = u
             user['upw'] = p
