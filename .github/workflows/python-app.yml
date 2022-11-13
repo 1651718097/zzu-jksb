@@ -39,6 +39,5 @@ jobs:
       env:
         UPW: ${{ secrets.UPW }}
         UID: ${{ secrets.UID }}
-        SCKEY: ${{ secrets.SCKEY }}
       run: |
         python main.py
